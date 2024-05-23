@@ -6,7 +6,7 @@ function checkGuess() {
         messageElement.textContent = "Parabéns! Vamos beber um copo na sexta?";
         messageElement.style.color = "green";
     } else {
-        messageElement.textContent = "Errado! Tente novamente.";
+        messageElement.textContent = "Errado! Tenta novamente.";
         messageElement.style.color = "red";
     }
 }
