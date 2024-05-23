@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pergunta importante</title>
-  <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Jogo</title>
+    <link rel="stylesheet" href="css.css">
 </head>
 <body>
-  <div class="container">
-    <h2>A minha mentora aceitaria o convite para vir beber um copo com o seu estagiário favorito?</h2>
-    <div class="buttons">
-      <button id="simBtn">Sim</button>
-      <button id="naoBtn">Não</button>
+    <div id="gameContainer">
+        <h1>Jogo de Adivinhação</h1>
+        <p>Adivinha um número entre 1 e 10</p>
+        <input type="number" id="guessInput" min="1" max="10">
+        <button onclick="checkGuess()">Adivinhar</button>
+        <div id="message"></div>
     </div>
-    <p id="message"></p>
-  </div>
-  <script src="js.js"></script>
+    <script src="js.js"></script>
 </body>
 </html>
