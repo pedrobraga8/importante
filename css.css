@@ -29,11 +29,17 @@ body {
 .obstacle {
     position: absolute;
     bottom: 20px;
-    right: 200px;
     width: 30px;
     height: 50px;
     background-color: red;
-    animation: moveObstacle 3s linear infinite;
+}
+
+#obstacle1 {
+    animation: moveObstacle1 3s linear infinite;
+}
+
+#obstacle2 {
+    animation: moveObstacle2 4s linear infinite;
 }
 
 .goal {
@@ -58,7 +64,7 @@ body {
     color: green;
 }
 
-@keyframes moveObstacle {
+@keyframes moveObstacle1 {
     from {
         right: -30px;
     }
@@ -67,3 +73,11 @@ body {
     }
 }
 
+@keyframes moveObstacle2 {
+    from {
+        right: -30px;
+    }
+    to {
+        right: 100%;
+    }
+}
