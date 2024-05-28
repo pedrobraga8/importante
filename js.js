@@ -1,11 +1,14 @@
 const stickman = document.getElementById('stickman');
-const obstacle = document.getElementById('obstacle');
+const obstacle1 = document.getElementById('obstacle1');
+const obstacle2 = document.getElementById('obstacle2');
 const goal = document.getElementById('goal');
 const congratulations = document.getElementById('congratulations');
 
 let isJumping = false;
 let isMovingRight = false;
 let isMovingLeft = false;
+let obstacleSpeed = 3;  // Velocidade inicial
+let obstacleIncreaseRate = 0.1;  // Aumenta a velocidade dos obstáculos
 
 document.addEventListener('keydown', (e) => {
     if (e.code === 'Space') {
@@ -63,28 +66,12 @@ function moveStickman() {
 
 function checkCollision() {
     const stickmanRect = stickman.getBoundingClientRect();
-    const obstacleRect = obstacle.getBoundingClientRect();
+    const obstacle1Rect = obstacle1.getBoundingClientRect();
+    const obstacle2Rect = obstacle2.getBoundingClientRect();
     const goalRect = goal.getBoundingClientRect();
 
     if (
-        stickmanRect.right > obstacleRect.left &&
-        stickmanRect.left < obstacleRect.right &&
-        stickmanRect.bottom > obstacleRect.top
-    ) {
-        alert('Game Over!');
-        window.location.reload();
-    }
-
-    if (
-        stickmanRect.right > goalRect.left &&
-        stickmanRect.left < goalRect.right &&
-        stickmanRect.bottom > goalRect.top
-    ) {
-        congratulations.classList.remove('hidden');
-    }
-}
-
-setInterval(() => {
-    moveStickman();
-    checkCollision();
-}, 50);
+        (stickmanRect.right > obstacle1Rect.left &&
+        stickmanRect.left < obstacle1Rect.right &&
+        stickmanRect.bottom > obstacle1Rect.top) ||
+        (stickmanRect.right > obstacle2Rect.left &&
