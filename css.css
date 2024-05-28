@@ -1,33 +1,68 @@
 body {
+    margin: 0;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-family: Arial, sans-serif;
     background-color: #f0f0f0;
 }
-#gameContainer {
-    text-align: center;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+.game-container {
+    position: relative;
+    width: 800px;
+    height: 400px;
+    background-color: #fff;
+    border: 2px solid #000;
+    overflow: hidden;
 }
-input {
-    padding: 10px;
-    font-size: 16px;
-    margin: 10px 0;
+
+.stickman {
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+    width: 30px;
+    height: 60px;
+    background-color: #000;
 }
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    background-color: #007BFF;
-    color: white;
-    border-radius: 5px;
+
+.obstacle {
+    position: absolute;
+    bottom: 20px;
+    right: 200px;
+    width: 30px;
+    height: 50px;
+    background-color: red;
+    animation: moveObstacle 3s linear infinite;
 }
-#message {
-    margin-top: 20px;
-    font-size: 18px;
+
+.goal {
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+    width: 30px;
+    height: 60px;
+    background-color: green;
+}
+
+.hidden {
+    display: none;
+}
+
+#congratulations {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: green;
+}
+
+@keyframes moveObstacle {
+    from {
+        right: -30px;
+    }
+    to {
+        right: 100%;
+    }
 }
