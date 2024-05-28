@@ -4,10 +4,24 @@ const goal = document.getElementById('goal');
 const congratulations = document.getElementById('congratulations');
 
 let isJumping = false;
+let isMovingRight = false;
+let isMovingLeft = false;
 
 document.addEventListener('keydown', (e) => {
     if (e.code === 'Space') {
         jump();
+    } else if (e.code === 'ArrowRight') {
+        isMovingRight = true;
+    } else if (e.code === 'ArrowLeft') {
+        isMovingLeft = true;
+    }
+});
+
+document.addEventListener('keyup', (e) => {
+    if (e.code === 'ArrowRight') {
+        isMovingRight = false;
+    } else if (e.code === 'ArrowLeft') {
+        isMovingLeft = false;
     }
 });
 
@@ -35,6 +49,18 @@ function jump() {
     }, 20);
 }
 
+function moveStickman() {
+    let stickmanLeft = parseInt(window.getComputedStyle(stickman).left);
+
+    if (isMovingRight && stickmanLeft < 750) {
+        stickman.style.left = `${stickmanLeft + 5}px`;
+    }
+
+    if (isMovingLeft && stickmanLeft > 0) {
+        stickman.style.left = `${stickmanLeft - 5}px`;
+    }
+}
+
 function checkCollision() {
     const stickmanRect = stickman.getBoundingClientRect();
     const obstacleRect = obstacle.getBoundingClientRect();
@@ -58,4 +84,7 @@ function checkCollision() {
     }
 }
 
-setInterval(checkCollision, 50);
+setInterval(() => {
+    moveStickman();
+    checkCollision();
+}, 50);
