@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Jogo</title>
+    <title>Jogo Stickman Saltador</title>
     <link rel="stylesheet" href="css.css">
 </head>
 <body>
-    <div id="gameContainer">
-        <h1>Jogo da Adivinha</h1>
-        <p>Adivinha o número entre 1 e 10 e ganha um presente</p>
-        <input type="number" id="guessInput" min="1" max="10">
-        <button onclick="checkGuess()">Adivinhar</button>
-        <div id="message"></div>
+    <div class="game-container">
+        <div class="stickman" id="stickman"></div>
+        <div class="obstacle" id="obstacle"></div>
+        <div class="goal" id="goal"></div>
     </div>
+    <div id="congratulations" class="hidden">Parabéns! Você atingiu o objetivo!</div>
     <script src="js.js"></script>
 </body>
 </html>
