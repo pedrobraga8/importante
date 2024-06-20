@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo Stickman Saltador</title>
+    <title>Jogo dos Copos</title>
     <link rel="stylesheet" href="css.css">
 </head>
 <body>
-    <div class="game-container">
-        <div class="stickman" id="stickman"></div>
-        <div class="obstacle" id="obstacle1"></div>
-        <div class="obstacle" id="obstacle2"></div>
-        <div class="goal" id="goal"></div>
+    <h1>Jogo dos Copos</h1>
+    <div id="game-container">
+        <div class="cup" data-index="0"></div>
+        <div class="cup" data-index="1"></div>
+        <div class="cup" data-index="2"></div>
+        <div class="cup" data-index="3"></div>
+        <div id="ball"></div>
     </div>
-    <div id="congratulations" class="hidden">Parabéns! Você atingiu o objetivo!</div>
+    <button id="start-button">Começar</button>
+    <div id="message"></div>
     <script src="js.js"></script>
 </body>
 </html>
