@@ -1,77 +1,48 @@
-const stickman = document.getElementById('stickman');
-const obstacle1 = document.getElementById('obstacle1');
-const obstacle2 = document.getElementById('obstacle2');
-const goal = document.getElementById('goal');
-const congratulations = document.getElementById('congratulations');
+document.addEventListener('DOMContentLoaded', function() {
+    const cups = document.querySelectorAll('.cup');
+    const ball = document.getElementById('ball');
+    const message = document.getElementById('message');
+    const startButton = document.getElementById('start-button');
+    let ballPosition = 0;
 
-let isJumping = false;
-let isMovingRight = false;
-let isMovingLeft = false;
-let obstacleSpeed = 3;  // Velocidade inicial
-let obstacleIncreaseRate = 0.1;  // Aumenta a velocidade dos obstáculos
+    function startGame() {
+        ball.style.display = 'block';
+        ballPosition = Math.floor(Math.random() * 4);
+        const ballLeft = cups[ballPosition].offsetLeft + 25;
+        ball.style.left = `${ballLeft}px`;
 
-document.addEventListener('keydown', (e) => {
-    if (e.code === 'Space') {
-        jump();
-    } else if (e.code === 'ArrowRight') {
-        isMovingRight = true;
-    } else if (e.code === 'ArrowLeft') {
-        isMovingLeft = true;
+        setTimeout(shuffleCups, 2000);
     }
-});
 
-document.addEventListener('keyup', (e) => {
-    if (e.code === 'ArrowRight') {
-        isMovingRight = false;
-    } else if (e.code === 'ArrowLeft') {
-        isMovingLeft = false;
+    function shuffleCups() {
+        ball.style.display = 'none';
+        message.innerText = '';
+        cups.forEach(cup => cup.style.animation = 'shuffle 1s linear 3');
+        
+        setTimeout(() => {
+            cups.forEach(cup => cup.style.animation = '');
+            enableCups();
+        }, 3000);
     }
-});
 
-function jump() {
-    if (isJumping) return;
-    isJumping = true;
+    function enableCups() {
+        cups.forEach(cup => {
+            cup.addEventListener('click', checkChoice);
+        });
+    }
 
-    let jumpHeight = 0;
-    const jumpInterval = setInterval(() => {
-        if (jumpHeight >= 150) {
-            clearInterval(jumpInterval);
-            const fallInterval = setInterval(() => {
-                if (jumpHeight <= 0) {
-                    clearInterval(fallInterval);
-                    isJumping = false;
-                } else {
-                    jumpHeight -= 10;
-                    stickman.style.bottom = `${jumpHeight + 20}px`;
-                }
-            }, 20);
+    function checkChoice(event) {
+        const chosenCup = event.currentTarget;
+        const chosenIndex = parseInt(chosenCup.getAttribute('data-index'));
+
+        if (chosenIndex === ballPosition) {
+            message.innerText = 'PARABÉNS! Ganhaste um dia de subscrição grátis!';
         } else {
-            jumpHeight += 10;
-            stickman.style.bottom = `${jumpHeight + 20}px`;
+            message.innerText = 'Azar! :( ';
         }
-    }, 20);
-}
 
-function moveStickman() {
-    let stickmanLeft = parseInt(window.getComputedStyle(stickman).left);
-
-    if (isMovingRight && stickmanLeft < 750) {
-        stickman.style.left = `${stickmanLeft + 5}px`;
+        cups.forEach(cup => cup.removeEventListener('click', checkChoice));
     }
 
-    if (isMovingLeft && stickmanLeft > 0) {
-        stickman.style.left = `${stickmanLeft - 5}px`;
-    }
-}
-
-function checkCollision() {
-    const stickmanRect = stickman.getBoundingClientRect();
-    const obstacle1Rect = obstacle1.getBoundingClientRect();
-    const obstacle2Rect = obstacle2.getBoundingClientRect();
-    const goalRect = goal.getBoundingClientRect();
-
-    if (
-        (stickmanRect.right > obstacle1Rect.left &&
-        stickmanRect.left < obstacle1Rect.right &&
-        stickmanRect.bottom > obstacle1Rect.top) ||
-        (stickmanRect.right > obstacle2Rect.left &&
+    startButton.addEventListener('click', startGame);
+});
