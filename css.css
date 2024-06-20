@@ -1,83 +1,53 @@
 body {
-    margin: 0;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    text-align: center;
+    font-family: Arial, sans-serif;
     background-color: #f0f0f0;
 }
 
-.game-container {
+#game-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
     position: relative;
-    width: 800px;
-    height: 400px;
-    background-color: #fff;
-    border: 2px solid #000;
-    overflow: hidden;
 }
 
-.stickman {
-    position: absolute;
-    bottom: 20px;
-    left: 50px;
-    width: 30px;
-    height: 60px;
-    background-color: #000;
+.cup {
+    width: 80px;
+    height: 100px;
+    background-color: #c4a484;
+    margin: 0 20px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 50% 50% 0 0;
 }
 
-.obstacle {
-    position: absolute;
-    bottom: 20px;
+#ball {
     width: 30px;
-    height: 50px;
+    height: 30px;
     background-color: red;
-}
-
-#obstacle1 {
-    animation: moveObstacle1 3s linear infinite;
-}
-
-#obstacle2 {
-    animation: moveObstacle2 4s linear infinite;
-}
-
-.goal {
+    border-radius: 50%;
     position: absolute;
-    bottom: 20px;
-    right: 50px;
-    width: 30px;
-    height: 60px;
-    background-color: green;
-}
-
-.hidden {
+    bottom: 10px;
     display: none;
 }
 
-#congratulations {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 24px;
+button {
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 20px;
     color: green;
 }
 
-@keyframes moveObstacle1 {
-    from {
-        right: -30px;
-    }
-    to {
-        right: 100%;
-    }
-}
-
-@keyframes moveObstacle2 {
-    from {
-        right: -30px;
-    }
-    to {
-        right: 100%;
-    }
+@keyframes shuffle {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(100px); }
+    50% { transform: translateX(-100px); }
+    75% { transform: translateX(50px); }
+    100% { transform: translateX(0); }
 }
