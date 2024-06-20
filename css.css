@@ -29,6 +29,7 @@ body {
     position: absolute;
     bottom: 10px;
     display: none;
+    z-index: 1;
 }
 
 button {
@@ -44,10 +45,16 @@ button {
     color: green;
 }
 
-@keyframes shuffle {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(100px); }
-    50% { transform: translateX(-100px); }
-    75% { transform: translateX(50px); }
-    100% { transform: translateX(0); }
+@keyframes complexShuffle {
+    0% { transform: translate(0, 0); }
+    10% { transform: translate(50px, -50px); }
+    20% { transform: translate(-50px, 50px); }
+    30% { transform: translate(100px, -30px); }
+    40% { transform: translate(-100px, 30px); }
+    50% { transform: translate(50px, 50px); }
+    60% { transform: translate(-50px, -50px); }
+    70% { transform: translate(30px, 100px); }
+    80% { transform: translate(-30px, -100px); }
+    90% { transform: translate(100px, -50px); }
+    100% { transform: translate(0, 0); }
 }
