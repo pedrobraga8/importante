@@ -17,14 +17,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function shuffleCups() {
         ball.style.display = 'none'; // Esconder a bola antes de embaralhar
-        cups.forEach(cup => {
-            cup.style.animation = 'shuffle 1s linear 3';
+        const positions = Array.from(cups).map(cup => cup.style.left);
+        const shuffledIndices = shuffleArray([0, 1, 2, 3]);
+
+        cups.forEach((cup, index) => {
+            cup.style.animation = `complexShuffle 2s linear 1`;
+            cup.addEventListener('animationend', () => {
+                cup.style.left = positions[shuffledIndices[index]];
+                cup.style.animation = '';
+            });
         });
 
         setTimeout(() => {
-            cups.forEach(cup => cup.style.animation = ''); // Remover animação
             enableCups(); // Habilitar os copos para seleção
-        }, 3000); // Tempo de embaralhamento
+        }, 2500); // Tempo de embaralhamento
     }
 
     function enableCups() {
@@ -38,12 +44,20 @@ document.addEventListener('DOMContentLoaded', function() {
         const chosenIndex = parseInt(chosenCup.getAttribute('data-index'));
 
         if (chosenIndex === ballPosition) {
-            message.innerText = 'PARABÉNS! Ganhaste uma subscrição diária grátis!';
+            message.innerText = 'PARABÉNS!';
         } else {
-            message.innerText = 'AZAR! :(';
+            message.innerText = 'AZAR!';
         }
 
         cups.forEach(cup => cup.removeEventListener('click', checkChoice)); // Remover eventos de clique após seleção
+    }
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
     }
 
     startButton.addEventListener('click', startGame); // Adicionar evento ao botão de iniciar
