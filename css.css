@@ -7,10 +7,11 @@ body {
     margin: 0;
     background: #f0f8ff;
     overflow: hidden;
+    flex-direction: column;
+    text-align: center;
 }
 
 .confetti-container {
-    text-align: center;
     position: relative;
 }
 
@@ -19,39 +20,19 @@ h1 {
     color: #ff69b4;
 }
 
-.letter-button {
-    background: #ff69b4;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background 0.3s;
-}
-
-.letter-button:hover {
-    background: #ff1493;
-}
-
 .letter {
-    display: none;
     background: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 600px;
-    margin: 20px;
+    margin: 20px auto;
     text-align: left;
 }
 
 .letter p {
     margin: 10px 0;
     line-height: 1.6;
-}
-
-.hidden {
-    display: none;
 }
 
 .confetti {
