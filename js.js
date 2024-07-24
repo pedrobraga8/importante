@@ -2,12 +2,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     startConfetti();
 });
 
-document.getElementById('openLetter').addEventListener('click', function() {
-    document.querySelector('.confetti-container').classList.add('hidden');
-    document.querySelectorAll('.confetti').forEach(confetti => confetti.remove());
-    document.getElementById('letter').classList.remove('hidden');
-});
-
 function startConfetti() {
     const confettiCount = 100;
     const confettiColors = ['#ff69b4', '#ff1493', '#ffb6c1', '#db7093'];
