@@ -1,70 +1,61 @@
 body {
+    font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    color: #fff;
+    background: #f0f8ff;
+    overflow: hidden;
 }
 
-.container {
+.confetti-container {
     text-align: center;
+    position: relative;
 }
 
 h1 {
-    font-size: 3em;
-    margin-bottom: 50px;
-    text-shadow: 2px 2px 4px #000;
-    color: #ffdab9;
+    font-size: 3rem;
+    color: #ff69b4;
 }
 
-.balloons {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 50px;
+.letter-button {
+    background: #ff69b4;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s;
 }
 
-.balloon {
-    width: 60px;
-    height: 80px;
-    border-radius: 50% 50% 50% 50%;
-    position: relative;
-    animation: float 4s ease-in-out infinite;
-    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+.letter-button:hover {
+    background: #ff1493;
 }
 
-.balloon::before {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    width: 2px;
-    height: 10px;
-    background: #333;
-    transform: translateX(-50%);
+.letter {
+    display: none;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px;
 }
 
-.cake {
-    font-size: 5em;
-    animation: bounce 2s infinite;
+.letter p {
+    margin: 10px 0;
+    line-height: 1.6;
 }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-30px);
-    }
+.hidden {
+    display: none;
 }
 
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
+@keyframes confetti-fall {
+    to {
+        transform: translateY(100vh) rotateZ(360deg);
+        opacity: 0;
     }
 }
