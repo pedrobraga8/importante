@@ -1,50 +1,69 @@
 body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #fff;
+}
+
+.container {
     text-align: center;
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
 }
 
-#game-container {
+h1 {
+    font-size: 3em;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px 4px #000;
+}
+
+.balloons {
     display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    position: relative;
+    justify-content: space-around;
+    margin-bottom: 50px;
 }
 
-.cup {
-    width: 80px;
-    height: 100px;
-    background-color: #c4a484;
-    margin: 0 20px;
+.balloon {
+    width: 60px;
+    height: 80px;
+    border-radius: 50% 50% 50% 50%;
     position: relative;
-    cursor: pointer;
-    border-radius: 50% 50% 0 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    transition: transform 1s;
+    animation: float 4s ease-in-out infinite;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-#ball {
-    width: 30px;
-    height: 30px;
-    background-color: red;
-    border-radius: 50%;
+.balloon::before {
+    content: '';
     position: absolute;
-    bottom: 10px;
-    display: none;
-    z-index: 1;
+    bottom: -10px;
+    left: 50%;
+    width: 2px;
+    height: 10px;
+    background: #333;
+    transform: translateX(-50%);
 }
 
-button {
-    margin-top: 30px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+.cake {
+    font-size: 5em;
+    animation: bounce 2s infinite;
 }
 
-#message {
-    margin-top: 20px;
-    font-size: 20px;
-    color: green;
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
 }
