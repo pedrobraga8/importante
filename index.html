@@ -1,27 +1,58 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parabéns, Benedita!</title>
-    <link rel="stylesheet" href="css.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I Miss You</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f8ff;
+      font-family: 'Arial', sans-serif;
+      color: #333;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      color: #FF69B4;
+    }
+
+    .emoji {
+      font-size: 5rem;
+    }
+
+    .heart {
+      font-size: 7rem;
+      color: red;
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Parabéns, Benedita!</h1>
-        <img src="https://cdn.pixabay.com/photo/2018/01/22/01/08/heart-3097905_1280.jpg" alt="Coração fofo" class="cute-image">
-        <button id="showMessageBtn">Mostrar Mensagem</button>
-        <div id="message" class="hidden">
-            <p>Querida Benedita,</p>
-            <p>Neste dia tão especial, quero desejar-te os mais sinceros parabéns. Desde o momento em que te conheci, a tua presença tem iluminado a minha vida de uma forma indescritível. És uma pessoa verdadeiramente única, com uma alma linda e um coração gigante, e sinto-me profundamente grato por ter a oportunidade de te conhecer melhor a cada dia que passa e de estar cada vez mais próximo de ti.</p>
-            <p>A tua gentileza, o teu sorriso, o teu olhar, a tua inteligência e a tua alegria contagiante tornam cada momento ao teu lado memorável. É incrível como consegues transformar os dias mais comuns em momentos especiais só com a tua presença. Gosto mesmo muito de ti, mais do que as palavras podem expressar, e depois ontem, posso dizer que te amo, mesmo.</p>
-            <p>Ainda estamos a descobrir mais um sobre o outro, mas sei que o que sinto por ti é sincero e verdadeiro. És uma pessoa muito especial para mim, e quero que saibas que estarei sempre aqui para ti, para te apoiar e para celebrar contigo todos os momentos importantes da tua vida, tal como o de hoje. Apesar de não presencialmente, acredito estar no teu coração.</p>
-            <p>Espero que o teu aniversário seja repleto de alegria, amor e todas as coisas boas que mereces. Que possamos continuar a partilhar sorrisos, conversas profundas e momentos inesquecíveis durante muito tempo.</p>
-            <p>Parabéns, meu anjo! Que o teu dia seja tão maravilhoso quanto tu és para mim.</p>
-            <p>Com todo o meu carinho e amor,</p>
-            <p>O teu Pedro</p>
-        </div>
-    </div>
-    <script src="js.js"></script>
+  <div class="container">
+    <h1>I miss you 🥺</h1>
+    <div class="heart">❤️</div>
+  </div>
 </body>
 </html>
