@@ -1,58 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I Miss You</title>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #f0f8ff;
-      font-family: 'Arial', sans-serif;
-      color: #333;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will you be my Valentine?</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #ffccdc;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
 
-    .container {
-      text-align: center;
-    }
+        h1 {
+            font-size: 2.5em;
+            color: #ff4d6d;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
 
-    h1 {
-      font-size: 4rem;
-      margin-bottom: 20px;
-      color: #FF69B4;
-    }
+        .options {
+            margin-top: 20px;
+        }
 
-    .emoji {
-      font-size: 5rem;
-    }
+        label {
+            font-size: 1.5em;
+            background-color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+            display: inline-block;
+            transition: 0.3s;
+        }
 
-    .heart {
-      font-size: 7rem;
-      color: red;
-      animation: pulse 1s infinite;
-    }
+        label:hover {
+            background-color: #ff4d6d;
+            color: white;
+        }
 
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.2);
-      }
-      100% {
-        transform: scale(1);
-      }
-    }
-  </style>
+        input {
+            display: none;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 1.8em;
+            color: #d6336c;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>I miss you 🥺</h1>
-    <div class="heart">❤️</div>
-  </div>
+
+    <h1>Will you be my Valentine? ❤️</h1>
+
+    <div class="options">
+        <label for="yes">✅ Sim</label>
+        <input type="checkbox" id="yes" onchange="showMessage()">
+
+        <label for="no" onclick="return false;">❌ Não</label>
+        <input type="checkbox" id="no">
+    </div>
+
+    <div id="message">
+        <p>Sexta-feira, 14 de fevereiro, 20:30H</p>
+        <p>Amo-te ❤️</p>
+    </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById("message").style.display = "block";
+        }
+    </script>
+
 </body>
 </html>
